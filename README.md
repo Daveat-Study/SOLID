@@ -15,7 +15,8 @@ SOLID Design Pattern
 ### Subtypes should be replaceable by their base types
 ### This principle force us to think twice before using interitance with our classes, as our classes shoudn't be extended only based on the fact they share something in common.
 
-##
+## Interface Segregation Principle
+### Many specific interfaces are better than a general interface
 
 ## Source
 https://www.youtube.com/watch?v=HoA6aZPR5K0

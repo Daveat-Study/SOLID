@@ -1,14 +1,17 @@
-/// In this context. we want to demonstrate Premium Video without Ads
-/// So we need to override
-/// 
-/// It is bad practice
+abstract class IVideoActions {
+
+  double getNumberOfHoursPlayed();
+  
+  void playRandomAd();
+
+}
 
 class PremiumVideo extends Video {
 
   late int _premiumId;
 
-  void playRandomAd() {
-    throw Exception("No Ads play during Premium videos");
+  double getNumberOfHoursPlayed() {
+    return (time / 3600.0) * views;
   }
 }
 
@@ -23,16 +26,6 @@ class Video {
   double getNumberOfHoursPlayed() {
     return (time / 3600.0) * views;
   }
-
-  Category getCategory(){
-    return this.category;
-  }
-
-  int getLikes(){
-    return this.likes;
-  }
-
-  int getViews() => this.views;
 
   void playRandomAd() {
     throw Exception("Play an ad");

@@ -1,48 +1,49 @@
-/// Solution is we create "VideoManager" class
+/// Solution is create 2 separate interface that work on specific class
 
-class PremiumVideo {
+abstract class IAdsActions {
 
-  late int premiumId;
-  late VideoManager manager;
-
-  double getNumberOfHoursPlayed() {
-    return manager.getNumberOfHoursPlayed();
-  }
+  void playRandomAd();
 }
 
-class Video {
+abstract class IVideoActions {
 
-  late VideoManager manager;
+  double getNumberOfHoursPlayed();
 
-  double getNumberOfHoursPlayed() {
-    return manager.getNumberOfHoursPlayed();
-  }
+}
 
-  void playRandomAd(){
-    manager.playRandomAd();
-  }
+
+
+class PremiumVideo implements IVideoActions{
   
+  late int time;
+  late int views;
+  
+  @override
+  double getNumberOfHoursPlayed() {
+    return (time / 3600.0) * views;
+  }
 }
 
-class VideoManager {
+class Video implements IVideoActions, IAdsActions{
   
   late final String title;
   late final int time;
   late final int likes;
   late final int views;
+  late final Category category;
   
+  @override
   double getNumberOfHoursPlayed() {
     return (time / 3600.0) * views;
   }
 
-  int getLikes(){
-    return this.likes;
-  }
-
-  int getViews() => this.views;
-
+  @override
   void playRandomAd() {
     throw Exception("Play an ad");
   }
   
+}
+
+enum Category {
+  GAMING, EDUCATIONAL, ENTERTAINMENT 
 }

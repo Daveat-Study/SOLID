@@ -1,25 +1,14 @@
-class EarningCalculator {
+/// In this context. we want to demonstrate Premium Video without Ads
+/// So we need to override
+/// 
+/// It is bad practice
 
-  double calculateEarnings(Video video){
+class PremiumVideo extends Video {
 
-    switch (video.getCategory()){
-      case Category.EDUCATIONAL: return calculateEducationalEarnings(video);
-      case Category.GAMING: return calculateGamingEarnings(video);
-      case Category.ENTERTAINMENT: return calculateEntertainmentEarnings(video);
-    }
-    
-  }
+  late int _premiumId;
 
-  double calculateEducationalEarnings(Video video){
-    return video.getLikes() * 0.013 + video.getViews() * 0.0013;
-  }
-
-  double calculateGamingEarnings(Video video){
-    return video.getLikes() * 0.012 + video.getViews() * 0.0012;
-  }
-
-  double calculateEntertainmentEarnings(Video video){
-    return video.getLikes() * 0.011 + video.getViews() * 0.0011;
+  void playRandomAd() {
+    throw Exception("No Ads play during Premium videos");
   }
 }
 
@@ -44,6 +33,10 @@ class Video {
   }
 
   int getViews() => this.views;
+
+  void playRandomAd() {
+    throw Exception("Play an ad");
+  }
   
 }
 

@@ -1,28 +1,48 @@
-import 'interface.dart';
-import 'problem.dart';
+/// Solution is we create "VideoManager" class
 
-class EducationalEarningCalculator implements IEarningCalculator {
+class PremiumVideo {
 
-  @override
-  double calculateEarnings(Video video){
-    return video.getLikes() * 0.013 + video.getViews() * 0.0013;
+  late int premiumId;
+  late VideoManager manager;
+
+  double getNumberOfHoursPlayed() {
+    return manager.getNumberOfHoursPlayed();
   }
 }
 
-class GamingEarningCalculator implements IEarningCalculator {
+class Video {
 
-  @override
-  double calculateEarnings(Video video){
-    return video.getLikes() * 0.012 + video.getViews() * 0.0012;
+  late VideoManager manager;
+
+  double getNumberOfHoursPlayed() {
+    return manager.getNumberOfHoursPlayed();
   }
 
+  void playRandomAd(){
+    manager.playRandomAd();
+  }
+  
 }
 
-class EntertainmentEarningCalculator implements IEarningCalculator {
-
-  @override
-  double calculateEarnings(Video video){
-    return video.getLikes() * 0.011 + video.getViews() * 0.0011;
+class VideoManager {
+  
+  late final String title;
+  late final int time;
+  late final int likes;
+  late final int views;
+  
+  double getNumberOfHoursPlayed() {
+    return (time / 3600.0) * views;
   }
 
+  int getLikes(){
+    return this.likes;
+  }
+
+  int getViews() => this.views;
+
+  void playRandomAd() {
+    throw Exception("Play an ad");
+  }
+  
 }

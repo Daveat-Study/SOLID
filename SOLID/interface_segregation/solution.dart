@@ -1,24 +1,19 @@
-import 'video_interface.dart';
-
 /// Solution is we create "VideoManager" class
 
-class PremiumVideo implements IVideo{
+class PremiumVideo {
 
   late int premiumId;
   late VideoManager manager;
-  
-  @override
+
   double getNumberOfHoursPlayed() {
     return manager.getNumberOfHoursPlayed();
   }
-
 }
 
-class Video implements IVideo{
+class Video {
 
   late VideoManager manager;
 
-  @override
   double getNumberOfHoursPlayed() {
     return manager.getNumberOfHoursPlayed();
   }

@@ -1,5 +1,3 @@
-import 'video_interface.dart';
-
 /// In this context. we want to demonstrate Premium Video without Ads
 /// So we need to override
 /// 
@@ -14,7 +12,7 @@ class PremiumVideo extends Video {
   }
 }
 
-class Video implements IVideo {
+class Video {
   
   late final String title;
   late final int time;
@@ -22,7 +20,6 @@ class Video implements IVideo {
   late final int views;
   late final Category category;
   
-  @override
   double getNumberOfHoursPlayed() {
     return (time / 3600.0) * views;
   }
